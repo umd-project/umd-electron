@@ -1,0 +1,71 @@
+{
+  "name": "umd-electron",
+  "version": "1.0.0",
+  "description": "Electron.js version of the UMD App for desktop environments",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umd-project/umd-electron.git"
+  },
+  "author": "RmR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umd-project/umd-electron/issues"
+  },
+  "homepage": "https://github.com/umd-project/umd-electron#readme",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "org.umd-project.electron",
+    "productName": "UMD App",
+    "copyright": "Copyright © 2021 ${author}",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": "dmg",
+      "icon": "build",
+      "type": "development",
+      "extendInfo": ".Info.plist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico",
+      "legalTrademarks": "Copyright © 2021 ${author}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "installerIcon": "icon.ico"
+    },
+    "linux": {
+      "target": "deb",
+      "maintainer": "{author}",
+      "category": "Utility",
+      "icon": "icon.icns",
+      "desktop": {
+        "StartupWMClass": "umd-app"
+      }
+    },
+    "directories": {
+      "buildResources": "build"
+    },
+    "fileAssociations": {
+      "ext": [
+        "umd"
+      ],
+      "name": "umd"
+    }
+  },
+  "devDependencies": {
+    "electron": "^11.2.2",
+    "electron-builder": "22.9.1",
+    "electron-builder-squirrel-windows": "^22.10.4",
+    "electron-icon-builder": "^2.0.1"
+  },
+  "dependencies": {
+    "ipc": "0.0.1",
+    "electron-log": "4.3.0"
+  }
+}
